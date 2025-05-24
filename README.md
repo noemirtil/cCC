@@ -6,7 +6,7 @@
 ```
 # `camelCase` converter app for iOS
 * Author: [noemirtil](https://github.com/noemirtil)
-* Version: ~~0.000000002~~
+* Version: 0.1
 
 ## Purpose
 
