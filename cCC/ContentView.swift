@@ -18,28 +18,77 @@ struct ContentView: View {
     @State private var input: String = "" // Creates the empty input String
     // why private?
     @State var output: String = "" // Creates the empty output String
+    @State var pascal: Bool = false // Creates the UpperCamelCase-PascalCase option
+    
     
     //MARK: - BODY
     var body: some View {
-        NavigationView {
-            Form {
-                Section {
-                    Text("Hello, tester!")
+        ZStack {
+            Color.ice
+                .ignoresSafeArea()
+            VStack {
+                            Spacer()
+                Text("camelCase Converter")
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.white)
+                    .shadow(radius: 4)
+                    .padding()
+                    .background(in: RoundedRectangle(cornerRadius: 20))
+                    .backgroundStyle(Color.teal.gradient) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
+                    .shadow(radius: 1)
+                        
+                Spacer()
+                Form {
+                    Section {
+                        TextField("Words to convert to camelCase", text: $input, axis: .vertical)
+                            .autocorrectionDisabled(true)
+                            .textInputAutocapitalization(.never)
+//                            .lineLimit(2, reservesSpace: true)
+                            .lineLimit(2...3)
+
+                        //                        add paste button (see stroyboard???)
+                    }
+                    Section {
+                        Text("Result of the conversion:")
+                        Text(output)
+//                            .lineLimit(2, reservesSpace: true)
+                            .lineLimit(2...3)
+                        //                        add copy button
+                    }
+                    Toggle("PascalCase", isOn: $pascal)
                 }
-                Section {
-                    TextField("Words to convert to camelCase", text: $input)
-                        .disableAutocorrection(true)
-                }
-                Section {
-                    Text("camelCase result:")
-                    Text(output)
-                }
+                .aspectRatio(contentMode: .fit)
+                .cornerRadius(20)
+                .navigationBarTitleDisplayMode(.inline)
+                .font(.headline)
+                .fontWeight(.semibold)
+                
+                .foregroundColor(Color.accentColor) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
+                .scrollContentBackground(.hidden) // to hide the default gray background of the form
+//                .padding()
+                
+//                Spacer()
+                
                 Button("Convert") {
                     convert()
                 }
+                .padding(18)
+                .background(in: RoundedRectangle(cornerRadius: 20))
+                    .backgroundStyle(Color.accentColor.gradient)
+                .foregroundColor(.white)
+                .font(.title)
+                .fontWeight(.bold)
+                .shadow(radius: 3)
+                
+                
+                Spacer()
+                Spacer()
+                Spacer()
+                Spacer()
             }
-            .navigationTitle("SwiftUI")
-            .navigationBarTitleDisplayMode(.inline)
+
+
         }
     }
     
@@ -52,8 +101,8 @@ struct ContentView: View {
         var inputWords = [String]() // Creates the empty array for the substrings which will represent each word of the input
         inputWords += input.components(separatedBy: " ") // Appends the substrings to the array based on the space separations
         for compon in inputWords {
-            if compon == inputWords[0] { // Applies only to the first word
-                output += compon.lowercased() // The first word shall be entirely lowercased
+            if compon == inputWords[0] && pascal == false { // Applies only to the first word if the PascalCase toggle is unselected
+                    output += compon.lowercased() // The first word shall be entirely lowercased
             }
             else { // Applies to each other word
                 if let firstChar = compon.uppercased().first {// Create an isolated capitalized first character. The .first method makes it optional
@@ -62,8 +111,7 @@ struct ContentView: View {
                 }
             }
         }
-        input = ""
-        //        print(output) // for debugging
+        input = "" // to reset the input field
     }
 }
 
