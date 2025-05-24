@@ -18,7 +18,9 @@ The sole intention of this project is to create the opportunity to make ***a lot
 
 ## User manual
 
-Type a phrase, and then chose between **UpperCamelCase** or **lowerCamelCase** and just enjoy the magic of a nice useless app!
+Type some words and click **Convert**.
+
+You might also chose between **PascalCase (UpperCamelCase)** or **lowerCamelCase** thanks to the toggle switch.
 
 
 
