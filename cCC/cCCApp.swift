@@ -1,14 +1,14 @@
 //
-//  cCCappApp.swift
-//  cCCapp
+//  cCCApp.swift
+//  cCC
 //
-//  Created by noemirtil on 12/5/25.
+//  Created by Noémie Baudouin on 24/5/25.
 //
 
 import SwiftUI
 
 @main
-struct cCCappApp: App {
+struct cCCApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
