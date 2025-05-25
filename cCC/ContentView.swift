@@ -35,7 +35,7 @@ struct ContentView: View {
                     .shadow(radius: 4)
                     .padding()
                     .background(in: RoundedRectangle(cornerRadius: 20))
-                    .backgroundStyle(Color.teal.gradient) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
+                    .backgroundStyle(Color.bubble.gradient) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
                     .shadow(radius: 1)
                         
                 Spacer()
@@ -75,7 +75,7 @@ struct ContentView: View {
                 }
                 .padding(18)
                 .background(in: RoundedRectangle(cornerRadius: 20))
-                    .backgroundStyle(Color.accentColor.gradient)
+                    .backgroundStyle(Color.bubble.gradient)
                 .foregroundColor(.white)
                 .font(.title)
                 .fontWeight(.bold)
