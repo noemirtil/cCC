@@ -24,10 +24,12 @@ struct ContentView: View {
     //MARK: - BODY
     var body: some View {
         ZStack {
-            Color.ice
+            //            Color.ice
+            Color("ice")
                 .ignoresSafeArea()
+                .opacity(0.9)
             VStack {
-                            Spacer()
+                Spacer()
                 Text("camelCase Converter")
                     .font(.largeTitle)
                     .fontWeight(.semibold)
@@ -35,24 +37,28 @@ struct ContentView: View {
                     .shadow(radius: 4)
                     .padding()
                     .background(in: RoundedRectangle(cornerRadius: 20))
-                    .backgroundStyle(Color.bubble.gradient) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
+                    .backgroundStyle(
+                        Color("bubble")
+                            .opacity(0.8)
+                            .gradient)
                     .shadow(radius: 1)
-                        
+                
                 Spacer()
+                
                 Form {
                     Section {
-                        TextField("Words to convert to camelCase", text: $input, axis: .vertical)
+                        TextField("Please type some words to convert to camelCase", text: $input, axis: .vertical)
                             .autocorrectionDisabled(true)
                             .textInputAutocapitalization(.never)
-//                            .lineLimit(2, reservesSpace: true)
+                        //                            .lineLimit(2, reservesSpace: true)
                             .lineLimit(2...3)
-
-                        //                        add paste button (see stroyboard???)
+                        
+                        //                        add paste button (see storyboard???)
                     }
                     Section {
-                        Text("Result of the conversion:")
-                        Text(output)
-//                            .lineLimit(2, reservesSpace: true)
+                        Text("Enjoy this nice converted string:")
+                        Text(output) // why no need for a $ ????
+                        //                            .lineLimit(2, reservesSpace: true)
                             .lineLimit(2...3)
                         //                        add copy button
                     }
@@ -63,32 +69,33 @@ struct ContentView: View {
                 .navigationBarTitleDisplayMode(.inline)
                 .font(.headline)
                 .fontWeight(.semibold)
-                
-                .foregroundColor(Color.accentColor) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
+                .foregroundColor(
+                    Color.accentColor
+                ) // refers to the accent color defined in the Build Settings window, which points towards the corresponding color in the assets
                 .scrollContentBackground(.hidden) // to hide the default gray background of the form
-//                .padding()
-                
-//                Spacer()
                 
                 Button("Convert") {
                     convert()
                 }
                 .padding(18)
                 .background(in: RoundedRectangle(cornerRadius: 20))
-                    .backgroundStyle(Color.bubble.gradient)
+                .backgroundStyle(
+                    Color("bubble")
+                        .opacity(0.8)
+                        .gradient)
                 .foregroundColor(.white)
-                .font(.title)
-                .fontWeight(.bold)
-                .shadow(radius: 3)
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .shadow(radius: 4)
                 
-                
+                Spacer()
                 Spacer()
                 Spacer()
                 Spacer()
                 Spacer()
             }
-
-
+            
+            
         }
     }
     
@@ -102,7 +109,7 @@ struct ContentView: View {
         inputWords += input.components(separatedBy: " ") // Appends the substrings to the array based on the space separations
         for compon in inputWords {
             if compon == inputWords[0] && pascal == false { // Applies only to the first word if the PascalCase toggle is unselected
-                    output += compon.lowercased() // The first word shall be entirely lowercased
+                output += compon.lowercased() // The first word shall be entirely lowercased
             }
             else { // Applies to each other word
                 if let firstChar = compon.uppercased().first {// Create an isolated capitalized first character. The .first method makes it optional
@@ -117,7 +124,7 @@ struct ContentView: View {
 
 
 
-    //MARK: - PREVIEWS
+//MARK: - PREVIEWS
 
 
 struct ContentView_Previews: PreviewProvider {
