@@ -16,15 +16,14 @@ struct ContentView: View {
     //MARK: - VARIABLES
     //    @State var input = "This is a simple camelCase converter app"
     @State private var input: String = "" // Creates the empty input String
-    // why private?
+    // QUESTION: why private?
     @State var output: String = "" // Creates the empty output String
     @State var pascal: Bool = false // Creates the UpperCamelCase-PascalCase option
     
     
-    //MARK: - BODY
+    //MARK: - BODY VIEW
     var body: some View {
         ZStack {
-            //            Color.ice
             Color("ice")
                 .ignoresSafeArea()
                 .opacity(0.9)
@@ -50,17 +49,15 @@ struct ContentView: View {
                         TextField("Please type some words to convert to camelCase", text: $input, axis: .vertical)
                             .autocorrectionDisabled(true)
                             .textInputAutocapitalization(.never)
-                        //                            .lineLimit(2, reservesSpace: true)
                             .lineLimit(2...3)
                         
-                        //                        add paste button (see storyboard???)
+                        // TODO: Add paste button (see storyboard???)
                     }
                     Section {
                         Text("Enjoy this nice converted string:")
-                        Text(output) // why no need for a $ ????
-                        //                            .lineLimit(2, reservesSpace: true)
+                        Text(output) // QUESTION: Why no need for a $ ????
                             .lineLimit(2...3)
-                        //                        add copy button
+                        // TODO: Add copy button
                     }
                     Toggle("PascalCase", isOn: $pascal)
                 }
@@ -101,7 +98,7 @@ struct ContentView: View {
     
     //MARK: - FUNCTIONS
     
-    
+    // TODO: Place this function in an external ConversionHelper.swilft file
     
     func convert() {
         output = ""
@@ -124,7 +121,7 @@ struct ContentView: View {
 
 
 
-//MARK: - PREVIEWS
+//MARK: - PREVIEW STRUCT
 
 
 struct ContentView_Previews: PreviewProvider {
