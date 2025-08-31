@@ -1,11 +1,6 @@
-```
-       _     _   _ _ 
- _ __ (_)_ _| |_(_) |
-|    \| |  _|  _| | |
-|_|_|_|_|_|  \__|_|_|                                                                                  
-```
+                                                                              
 # `camelCase` converter app for iOS
-* Author: [noemirtil](https://github.com/noemirtil)
+
 * Version: 0.1
 
 ## Purpose
@@ -21,6 +16,22 @@ The sole intention of this project is to create the opportunity to make ***a lot
 Type some words and click **Convert**.
 
 You might also chose between **PascalCase (UpperCamelCase)** or **lowerCamelCase** thanks to the toggle switch.
+<br>
+<br>
+<br>
+<br>
+<br>
 
+
+
+```
+Developped by:
+https://github.com/noemirtil  _      _   _ _
+   _ __   ___   ___ _ __ ___ (_)_ __| |_(_) |
+  | '_ \ / _ \ / _ \ '_ ' _ \| | '__| __| | |
+  | | | | (_) |  __/ | | | | | | |  | |_| | |
+  |_| |_|\___/ \___|_| |_| |_|_|_|   \__|_|_|🫐
+```
+### [🫐 noemirtil 🫐](https://github.com/noemirtil)
 
 
